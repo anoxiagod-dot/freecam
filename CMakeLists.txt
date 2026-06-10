@@ -15,7 +15,7 @@ include(FetchContent)
 FetchContent_Declare(
     dobby
     GIT_REPOSITORY https://github.com/jmpews/Dobby.git
-    GIT_TAG master
+    GIT_TAG v1.0
 )
 FetchContent_MakeAvailable(dobby)
 
