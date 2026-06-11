@@ -7,6 +7,7 @@
 #include <pthread.h>
 #include <unistd.h>
 #include <dlfcn.h>
+#include <sys/mman.h>
 #include <string.h>
 #include <fstream>
 #include <string>
