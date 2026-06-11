@@ -15,7 +15,7 @@ jobs:
       - uses: nttld/setup-ndk@v1
         id: ndk
         with:
-          ndk-version: r25c # 이 부분을 r26b에서 r25c로 수정했습니다!
+          ndk-version: r26b # 이 부분을 r26b에서 r25c로 수정했습니다!
 
       - name: Build
         run: |
