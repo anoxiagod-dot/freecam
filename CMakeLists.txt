@@ -3,18 +3,20 @@ project(MotionBlur LANGUAGES C CXX)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_ANDROID_STL_TYPE c++_shared)
+
+cmake_policy(SET CMP0169 OLD)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O2 -fvisibility=hidden -ffunction-sections -fdata-sections -fexceptions -w")
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O2 -fvisibility=hidden -ffunction-sections -fdata-sections -w")
 set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -Wl,--gc-sections,--strip-all -s")
 
-# Скачиваем только хедеры и либу — не компилируем preloader
 include(FetchContent)
 FetchContent_Declare(
     preloader
     GIT_REPOSITORY https://github.com/LiteLDev/preloader-android.git
     GIT_TAG main
-    SOURCE_SUBDIR "nonexistent" # не компилируем, только скачиваем
+    SOURCE_SUBDIR "nonexistent"
 )
 FetchContent_Populate(preloader)
 
@@ -35,9 +37,10 @@ set(SOURCES
     src/ImGui/backends/imgui_impl_android.cpp
 )
 
+add_library(MotionBlur SHARED ${SOURCES})
+
 target_link_libraries(MotionBlur
     ${preloader_SOURCE_DIR}/lib/ARM64/libGlossHook.a
     log android EGL GLESv3 GLESv2
     c++_shared
 )
-
