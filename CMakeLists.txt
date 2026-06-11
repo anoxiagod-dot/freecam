@@ -35,9 +35,9 @@ set(SOURCES
     src/ImGui/backends/imgui_impl_android.cpp
 )
 
-add_library(MotionBlur SHARED ${SOURCES})
-
 target_link_libraries(MotionBlur
     ${preloader_SOURCE_DIR}/lib/ARM64/libGlossHook.a
     log android EGL GLESv3 GLESv2
+    c++_shared
 )
+
