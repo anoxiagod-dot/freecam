@@ -12,6 +12,9 @@ set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O2 -fvisibility=hidden -ffunction-sections 
 set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -Wl,--gc-sections,--strip-all -s")
 
 include(FetchContent)
+
+# РЎРєР°С‡РёРІР°РµРј preloader-android С‚РѕР»СЊРєРѕ РґР»СЏ С…РµРґРµСЂРѕРІ Рё libGlossHook.a
+# SOURCE_SUBDIR nonexistent = РЅРµ РєРѕРјРїРёР»РёСЂСѓРµРј, С‚РѕР»СЊРєРѕ СЃРєР°С‡РёРІР°РµРј
 FetchContent_Declare(
     preloader
     GIT_REPOSITORY https://github.com/LiteLDev/preloader-android.git
